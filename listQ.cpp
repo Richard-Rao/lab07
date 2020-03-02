@@ -27,6 +27,26 @@ void Queue::enqueue(int n) {
     size= size+1;
 }
 
+void reverse(int k, Queue& queue){
+    if(queue.isEmpty()){
+    	return;
+    }
+    if(k> queue.getSize())
+	k = queue.getSize();
+
+    stack<Node> s;
+    for(int i = 0 i < k; i++){
+    	s.push(queue.dequeue);
+    }
+    while(!s.empty()){
+    	queue.enqueue(s.top());
+	s.pop();
+    }
+    for(int i = 0; i < queue.getSize()-k; i++){
+    	queue.enqueue(queue.dequeue);
+    }
+}
+
 int Queue::dequeue() {
     if (isEmpty())
         throw EmptyQueue();
